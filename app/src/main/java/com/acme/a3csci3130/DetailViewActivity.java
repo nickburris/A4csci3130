@@ -10,6 +10,10 @@ public class DetailViewActivity extends Activity {
     private EditText nameField, businessNumberField, primaryBusinessField, addressField, provinceField;
     Business receivedBusinessInfo;
 
+    /**
+     * onCreate sets up this DetailViewActivity with the current business data as editable fields
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,12 +35,28 @@ public class DetailViewActivity extends Activity {
         }
     }
 
+    /**
+     * The click listener for the update business button updates the current business data in firebase
+     * @param v Clicked view
+     */
     public void updateBusiness(View v){
-        //TODO: Update business funcionality
+        receivedBusinessInfo.businessNumber = businessNumberField.getText().toString();
+        receivedBusinessInfo.name = nameField.getText().toString();
+        receivedBusinessInfo.primaryBusiness = primaryBusinessField.getText().toString();
+        receivedBusinessInfo.address = addressField.getText().toString();
+        receivedBusinessInfo.province = provinceField.getText().toString();
+
+        ((MyApplicationData) getApplicationContext()).firebaseReference.child(receivedBusinessInfo.uid).setValue(receivedBusinessInfo);
+        finish();
     }
 
+    /**
+     * The click listener for the erase business button erases the current business data
+     * @param v Clicked view
+     */
     public void eraseBusiness(View v)
     {
-        //TODO: Erase business functionality
+        ((MyApplicationData) getApplicationContext()).firebaseReference.child(receivedBusinessInfo.uid).removeValue();
+        finish();
     }
 }
