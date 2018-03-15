@@ -15,8 +15,6 @@ import com.google.firebase.database.FirebaseDatabase;
  * Main activity of the application shows a list of all businesses
  */
 public class MainActivity extends Activity {
-
-
     private ListView businessListView;
     private FirebaseListAdapter<Business> firebaseAdapter;
 
