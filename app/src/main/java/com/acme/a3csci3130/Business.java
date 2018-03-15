@@ -9,9 +9,8 @@ import java.util.Map;
 
 /**
  * Class that defines how the data will be stored in the
- * Firebase databse. This is converted to a JSON format
+ * Firebase databsse. This is converted to a JSON format
  */
-
 public class Business implements Serializable {
 
     public String uid;
@@ -21,10 +20,22 @@ public class Business implements Serializable {
     public String address;
     public String province;
 
+    /**
+     * Empty constructor for firebase object initialization
+     */
     public Business() {
         // Default constructor required for calls to DataSnapshot.getValue
     }
 
+    /**
+     * Constructor to create a Business object with all fields
+     * @param uid Unique ID of this business
+     * @param businessNumber User-given business number
+     * @param name Name of business
+     * @param primaryBusiness Primary business type
+     * @param address Business address
+     * @param province Business province of operation
+     */
     public Business(String uid, String businessNumber, String name, String primaryBusiness, String address, String province){
         this.uid = uid;
         this.businessNumber = businessNumber;

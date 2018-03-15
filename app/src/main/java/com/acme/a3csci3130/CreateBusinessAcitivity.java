@@ -6,12 +6,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/**
+ * CreateBusinessActivity provides fields to enter data for a new business
+ */
 public class CreateBusinessAcitivity extends Activity {
 
     private Button submitButton;
     private EditText businessNumberField, nameField, primaryBusinessField, addressField, provinceField;
     private MyApplicationData appState;
 
+    /**
+     * onCreate sets up this CreateBusinessActivity with the editable fields for a new business
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +34,10 @@ public class CreateBusinessAcitivity extends Activity {
         provinceField = (EditText) findViewById(R.id.createProvinceField);
     }
 
+    /**
+     * Click listener for the submit button uploads the new business data to firebase
+     * @param v
+     */
     public void submitInfoButton(View v) {
         //each entry needs a unique ID
         String businessID = appState.firebaseReference.push().getKey();

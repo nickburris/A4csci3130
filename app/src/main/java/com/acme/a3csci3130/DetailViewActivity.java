@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+/**
+ * DetailViewActivity shows details for a specific business
+ */
 public class DetailViewActivity extends Activity {
 
     private EditText nameField, businessNumberField, primaryBusinessField, addressField, provinceField;

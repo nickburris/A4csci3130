@@ -11,12 +11,19 @@ import android.widget.TextView;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.database.FirebaseDatabase;
 
+/**
+ * Main activity of the application shows a list of all businesses
+ */
 public class MainActivity extends Activity {
 
 
     private ListView businessListView;
     private FirebaseListAdapter<Business> firebaseAdapter;
 
+    /**
+     * onCreate sets up the main activity by linking the business list to firebase
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,12 +58,20 @@ public class MainActivity extends Activity {
         });
     }
 
+    /**
+     * Click listener for the create business button to start the CreateBusinessActivity
+     * @param v
+     */
     public void createBusinessButton(View v)
     {
         Intent intent=new Intent(this, CreateBusinessAcitivity.class);
         startActivity(intent);
     }
 
+    /**
+     * Click listener for each individual business to show its details
+     * @param business Business that was clicked on
+     */
     private void showDetailView(Business business)
     {
         Intent intent = new Intent(this, DetailViewActivity.class);
