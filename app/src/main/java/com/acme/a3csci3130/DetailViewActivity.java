@@ -3,35 +3,40 @@ package com.acme.a3csci3130;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 
 public class DetailViewActivity extends Activity {
 
-    private EditText nameField, emailField;
-    Contact receivedPersonInfo;
+    private EditText nameField, businessNumberField, primaryBusinessField, addressField, provinceField;
+    Business receivedBusinessInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_view);
-        receivedPersonInfo = (Contact)getIntent().getSerializableExtra("Contact");
+        receivedBusinessInfo = (Business)getIntent().getSerializableExtra("Business");
 
-        nameField = (EditText) findViewById(R.id.name);
-        emailField = (EditText) findViewById(R.id.email);
+        nameField = (EditText) findViewById(R.id.nameField);
+        businessNumberField = (EditText) findViewById(R.id.businessNumberField);
+        primaryBusinessField = (EditText) findViewById(R.id.primaryBusinessField);
+        addressField = (EditText) findViewById(R.id.addressField);
+        provinceField = (EditText) findViewById(R.id.provinceField);
 
-        if(receivedPersonInfo != null){
-            nameField.setText(receivedPersonInfo.name);
-            emailField.setText(receivedPersonInfo.email);
+        if(receivedBusinessInfo != null){
+            nameField.setText(receivedBusinessInfo.name);
+            businessNumberField.setText(receivedBusinessInfo.businessNumber);
+            primaryBusinessField.setText(receivedBusinessInfo.primaryBusiness);
+            addressField.setText(receivedBusinessInfo.address);
+            provinceField.setText(receivedBusinessInfo.province);
         }
     }
 
-    public void updateContact(View v){
-        //TODO: Update contact funcionality
+    public void updateBusiness(View v){
+        //TODO: Update business funcionality
     }
 
-    public void eraseContact(View v)
+    public void eraseBusiness(View v)
     {
-        //TODO: Erase contact functionality
+        //TODO: Erase business functionality
     }
 }

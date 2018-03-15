@@ -22,9 +22,11 @@
         </activity>
         <activity
             android:name=".DetailViewActivity"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".CreateContactAcitivity"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".MainActivity"
+            android:label="View or Edit"/>
+        <activity android:name=".CreateBusinessAcitivity"
+            android:parentActivityName=".MainActivity"
+            android:label="Create Business"/>
     </application>
 
 </manifest>
